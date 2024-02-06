@@ -5,23 +5,24 @@ from sklearn.ensemble import RandomForestClassifier
 
 # Optional: implement hyperparameter tuning.
 def train_model(X_train, y_train):
-    """
-    Trains a machine learning model and returns it.
 
-    Inputs
-    ------
-    X_train : np.array
-        Training data.
-    y_train : np.array
-        Labels.
-    Returns
-    -------
-    model
-        Trained machine learning model.
-    """
-   model = RandomForestClassifier()
-   model.fit(X_train, y_train)
-   return model
+  """
+  Trains a machine learning model and returns it.
+
+  Inputs
+  ------
+  X_train : np.array
+      Training data.
+  y_train : np.array
+      Labels.
+  Returns
+  -------
+  model
+      Trained machine learning model.
+  """
+  model = RandomForestClassifier()
+  model.fit(X_train, y_train)
+  return model
 
 
 def compute_model_metrics(y, preds):

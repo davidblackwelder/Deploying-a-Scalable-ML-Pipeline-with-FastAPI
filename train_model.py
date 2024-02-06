@@ -4,7 +4,8 @@ import pandas as pd
 from sklearn.model_selection import train_test_split
 
 from ml.data import process_data
-from ml.model import (compute_model_metrics, inference, load_model, performance_on_categorical_slice, save_model, train_model)
+from ml.model import (compute_model_metrics, inference, load_model,
+                      performance_on_categorical_slice, save_model, train_model)
 
 # load the cencus.csv data
 project_path = os.getcwd()
@@ -37,7 +38,7 @@ X_train, y_train, encoder, lb = process_data(
     categorical_features=cat_features,
     label='salary',
     training=True
-    )
+)
 
 X_test, y_test, _, _ = process_data(
     test,
@@ -77,15 +78,16 @@ for col in cat_features:
         count = test[test[col] == slicevalue].shape[0]
         p, r, fb = performance_on_categorical_slice(
             # use test, col and slicevalue as part of the input
-            data = test,
-            column_name = col,
-            slice_value = slicevalue,
-            categorical_features = cat_features,
-            label = 'salary',
-            encoder = encoder,
-            lb = lb,
-            model = model
+            data=test,
+            column_name=col,
+            slice_value=slicevalue,
+            categorical_features=cat_features,
+            label='salary',
+            encoder=encoder,
+            lb=lb,
+            model=model
         )
         with open("slice_output.txt", "a") as f:
-          print(f"{col}: {slicevalue}, Count: {count:,}", file=f)
-          print(f"Precision: {p:.4f} | Recall: {r:.4f} | F1: {fb:.4f}", file=f)
+            print(f"{col}: {slicevalue}, Count: {count:,}", file=f)
+            print(f"Precision: {p:.4f} | Recall: {
+                  r:.4f} | F1: {fb:.4f}", file=f)

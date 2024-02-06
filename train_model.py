@@ -10,15 +10,16 @@ from ml.model import (
     load_model,
     performance_on_categorical_slice,
     save_model,
-    train_model,
+    train_model
 )
-# TODO: load the cencus.csv data
+
+# load the cencus.csv data
 project_path = os.getcwd()
 data_path = os.path.join(project_path, "data", "census.csv")
 print(data_path)
 data = pd.read_csv(data_path)
 
-# TODO: split the provided data to have a train dataset and a test dataset
+# split the provided data to have a train dataset and a test dataset
 # Optional enhancement, use K-fold cross validation instead of a train-test split.
 train, test = train_test_split(data, test_size=0.2)
 
@@ -31,7 +32,7 @@ cat_features = [
     "relationship",
     "race",
     "sex",
-    "native-country",
+    "native-country"
 ]
 
 # process the training data.

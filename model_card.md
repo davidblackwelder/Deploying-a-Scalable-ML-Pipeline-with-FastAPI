@@ -24,12 +24,17 @@ The data was obtained from Udacity which was a subset of the [Census Income data
 
 ## Metrics
 The metrics used were precision, recall, and F1.
+Precision: 0.7279
+Recall: 0.6246
+F1: 0.6723
 The file `slice_output.txt` contains the metrics for each individual slice.
 
 ## Ethical Considerations
 This model does take into account several features that could add biases such as race and sex.
 
 This dataset is not a representation of the population as a whole.
+
+The F1 score of 0.6723 shows that the model does not get the predictions on income correct all the time. Therefore, this model should not be used to make assumptions about the population as a whole.
 
 ## Caveats and Recommendations
 This dataset contains historical data and may not represent the current trend.

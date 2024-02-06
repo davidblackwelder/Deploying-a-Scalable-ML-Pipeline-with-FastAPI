@@ -4,25 +4,26 @@ from ml.data import process_data
 from sklearn.ensemble import RandomForestClassifier
 
 # Optional: implement hyperparameter tuning.
+
+
 def train_model(X_train, y_train):
+    """
+    Trains a machine learning model and returns it.
 
-  """
-  Trains a machine learning model and returns it.
-
-  Inputs
-  ------
-  X_train : np.array
-      Training data.
-  y_train : np.array
-      Labels.
-  Returns
-  -------
-  model
-      Trained machine learning model.
-  """
-  model = RandomForestClassifier()
-  model.fit(X_train, y_train)
-  return model
+    Inputs
+    ------
+    X_train : np.array
+        Training data.
+    y_train : np.array
+        Labels.
+    Returns
+    -------
+    model
+        Trained machine learning model.
+    """
+    model = RandomForestClassifier()
+    model.fit(X_train, y_train)
+    return model
 
 
 def compute_model_metrics(y, preds):
@@ -64,6 +65,7 @@ def inference(model, X):
     predictions = model.predict(X)
     return predictions
 
+
 def save_model(model, path):
     """ Serializes model to a file.
 
@@ -75,12 +77,13 @@ def save_model(model, path):
         Path to save pickle file.
     """
     with open(path, 'wb') as file:
-      pickle.dump(model, file)
+        pickle.dump(model, file)
+
 
 def load_model(path):
     """ Loads pickle file from `path` and returns it."""
     with open(path, 'rb') as file:
-      model = pickle.load(file)
+        model = pickle.load(file)
     return model
 
 
@@ -132,6 +135,7 @@ def performance_on_categorical_slice(
         encoder=encoder,
         lb=lb
     )
-    preds = inference(model, X_slice) # your code here to get prediction on X_slice using the inference function
+    # your code here to get prediction on X_slice using the inference function
+    preds = inference(model, X_slice)
     precision, recall, fbeta = compute_model_metrics(y_slice, preds)
     return precision, recall, fbeta
